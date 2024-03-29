@@ -8,8 +8,9 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install application dependencies
+#RUN npm install
+ENV npm_config_fetch_retry_maxtimeout=60000
 RUN npm install
-
 # Copy the rest of the application files to the container
 COPY . .
 
